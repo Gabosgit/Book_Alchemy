@@ -1,0 +1,72 @@
+<!-- templates/index.html -->
+{% extends "layout.html" %}
+
+{% block title %}
+<!-- the title in layout.html -->
+Add Book
+{% endblock %}
+
+{% block content %}
+<!-- the content in the layout -->
+<div class="adds_container">
+  <form action="/add_book" method="POST">
+    <h1>ADD BOOK</h1><br>
+    <p>Before adding a book, make sure the <b>author</b> is in the list of authors.<br>
+      Add the <b>isbn</b> to show the book cover in the list of books in the home page.</p>
+    <label for="title"><b>Book title:</b></label><br>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="isbn"><b>isbn:</b></label><br>
+    <input type="text" id="isbn" name="isbn"><br><br>
+
+    <label for="authors"><b>Select author:</b></label><br>
+    <select name="author" id="authors">
+      <option value="none" selected disabled hidden>Select an Option</option>
+      {% for author in authors %}
+        <option value="{{ author.author_id }}">{{author.author_name}}</option>
+      {% endfor %}
+    </select>
+    <br><br>
+
+    <label for="publication_year"><b>Publication Year:</b></label><br>
+    <input type="number" placeholder="YYYY" min="1900" max="2025" id="publication_year" name="publication_year"><br><br>
+
+    <label for="Details"><b>Details:</b></label><br>
+    <textarea id="Details" name="details" rows="4" cols="50">
+    </textarea><br>
+
+    <input type="submit" value="Add Book">
+  </form>
+</div>
+
+<div class="container mt-3">
+<!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Missing Author</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          Select an author from the list. If the author is not in the list, first click on 'Add author' to add the author to the database.
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <a href="/add_book"><button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button></a>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+  <script>
+    $(document).ready(function(){
+        $("#myModal").modal('{{ show_modal }}');
+    });
+  </script>
+{% endblock %}

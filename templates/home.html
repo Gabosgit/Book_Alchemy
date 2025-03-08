@@ -1,0 +1,67 @@
+<!-- templates/index.html -->
+{% extends "layout.html" %}
+
+{% block title %}
+<!-- the title in layout.html -->
+Add Book
+{% endblock %}
+
+{% block content %}
+<!-- the content in the layout -->
+
+    <div class="home_header">
+      <h1>LIST OF BOOKS</h1>
+      <p>In <b>Sort by</b> click to sort the books by <b>title</b> or <b>author</b> in alphabetical order.<br>
+        Empty <b>submit</b> shows all books sorted by <b>id</b>.<br>
+        Search by keyword on a title or author to filter books.
+      </p>
+    </div>
+    <div class="row header_list_books">
+
+      <div class="col" >
+        <form action="" method="post">
+          <label for="search"><b>Search: </b></label>
+          <input type="text" id="search" name="search" placeholder=" Book title or author...">
+          <input type="submit">
+        </form>
+      </div>
+      <div class="col">
+        <p><b>Books in the list:</b> {{ books_length }}</p>
+      </div>
+      <div>
+        <p><b>Sort by: </b></p>
+        <form action="" method="post">
+          <button name="order_by" value="book_title">Title</button>
+          <button name="order_by" value="author_name">Author</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div>
+      {% autoescape off %}
+        {{ msg }}
+      {% endautoescape %}
+    </div>
+
+    {% for book in books %}
+    <div class="container_row_book">
+
+      <div class="book_row">
+        <div class="row">
+          <div style="width: 30px; margin: 0px 10px;"><img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-S.jpg"></div>
+          <div><p>{{ book.book_id }} - <b>{{ book.book_title }}</b> ({{ book.author_name }})</p></div>
+        </div>
+        <form action="/book/{{ book.book_id }}/book_details" method="post">
+          <button name="details" value="details">show details</button>
+        </form>
+      </div>
+      <div style="display: {{ display }}" class="container_delete">
+        <form action="/book/{{ book.book_id }}/delete" method="post">
+          <button class="delete_btn" name="delete" value="delete">DELETE</button>
+        </form>
+      </div>
+    </div>
+
+  {% endfor %}
+{% endblock %}

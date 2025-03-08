@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.adds_container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.container form {
+    display: block;
+    width: auto;
+}
+.container form h1 {
+    text-align: center;
+}
+.container form label {
+    margin-bottom: 0px
+}
+
+.home_header h1 {
+    margin-bottom: 0px;
+}
+
+
+
+.header_list_books {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.header_list_books div {
+    display: flex;
+    align-items: end;
+    margin-right: 20px;
+    padding-bottom: 10px;
+}
+
+.header_list_books div form {
+    display: flex;
+    align-items: end;
+}
+
+.header_list_books div form label {
+    margin-bottom: 0px;
+    margin-right: 5px;
+}
+
+
+.header_list_books div p {
+    margin: 0px;
+    padding-right: 10px;
+}
+
+.header_list_books input[type="submit"] {
+    margin-left: 10px;
+}
+
+.header_list_books button, .header_list_books input[type="submit"] {
+    border: none;
+    padding: 0px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.header_list_books button:hover, .header_list_books input[type="submit"]:hover {
+  background-color: #04AA6D;
+  color: white;
+}
+
+
+.header_list_books button:active, .header_list_books input[type="submit"]:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+  transform: scale(0.9,0.9);
+}
+
+.container_row_book {
+    margin-bottom: 10px;
+}
+
+.container_delete {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.container_delete button {
+    background-color: red;
+    padding: 0px 10px;
+    border: solid gray;
+    border-radius: 0px 0px 8px 8px ;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.container_delete button:hover {
+    background-color: orange;
+}
+
+
+.container_delete button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+  transform: scale(0.9,0.9);
+}
+
+.book_row {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F0F8FF;
+    border: 10px solid #F0F8FF;
+    border-radius: 10px;
+}
+
+.book_row div {
+    display: flex;
+    align-items: center;
+}
+
+.book_row div p {
+    padding: 0px 20px;
+    margin-bottom: 0px;
+}
+
+.book_row form {
+    display: flex;
+    align-items: end;
+}
+.book_row form button {
+    color: #72A0C1;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.book_row form button:hover {
+    color: #007FFF;
+}
+
+.delete_btn {
+    border: none;
+    background-color: transparent;
+}
+
+#navbarNav ul li a:visited {
+    background-color: red;
+}
